@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using aspnetcore_todo.Repositories;
 using aspnetcore_todo.Models;
 using aspnetcore_todo.Database;
+using aspnetcore_todo.Services;
 
 namespace aspnetcore_todo
 {
@@ -40,6 +41,7 @@ namespace aspnetcore_todo
         private void SetupDependencyInjection(IServiceCollection services)
         {
             services.AddScoped<IRepository<TodoList>, Repository<TodoList>>();
+            services.AddScoped<ITodoListService, TodoListService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

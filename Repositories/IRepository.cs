@@ -3,7 +3,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using aspnetcore_todo.Models;
 
-namespace aspnetcore_todo.Repositories {
+namespace aspnetcore_todo.Repositories
+{
     public interface IRepository<T> where T: EntityBase
     {
         IQueryable<T> GetAll();
