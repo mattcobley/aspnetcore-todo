@@ -1,4 +1,3 @@
-using aspnetcore_todo.database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -6,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using aspnetcore_todo.Repositories;
+using aspnetcore_todo.Models;
+using aspnetcore_todo.Database;
 
 namespace aspnetcore_todo
 {
@@ -31,8 +33,13 @@ namespace aspnetcore_todo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            SetupDependencyInjection(services);
+        }
+
+        private void SetupDependencyInjection(IServiceCollection services)
+        {
+            services.AddScoped<IRepository<TodoList>, Repository<TodoList>>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
