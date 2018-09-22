@@ -1,5 +1,6 @@
 ﻿using aspnetcore_todo.Models;
 using aspnetcore_todo.Services;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Collections.Generic;
 
@@ -14,9 +15,15 @@ namespace aspnetcore_todo.Pages
             _todoListService = todoListService;
         }
 
+        [BindProperty]
         public IList<TodoList> TodoLists { get; set; }
         
         public void OnGet()
+        {
+            SetTodoLists();
+        }
+
+        private void SetTodoLists()
         {
             TodoLists = _todoListService.getAll();
         }

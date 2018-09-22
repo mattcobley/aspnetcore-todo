@@ -6,5 +6,7 @@ namespace aspnetcore_todo.Services
     public interface ITodoListService
     {
         IList<TodoList> getAll();
+        void add(TodoList list);
+        void delete(TodoList list);
     }
 }

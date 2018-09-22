@@ -35,3 +35,43 @@ body {
         display: none;
     }
 }
+
+.todolist.list-group-item.text-center{
+    border-radius: 15px;
+    margin: 20px auto 20px auto;
+    padding: 15px;
+    border: 1px solid grey;
+    width: 350px;
+}
+
+.todolist:hover{
+    cursor:pointer;
+    background: lightcoral;
+}
+
+.createlistbutton a{
+    border-radius: 55px;
+    margin: 20px 30px 20px 30px;
+    padding: 15px 30px;
+    border: 1px solid green;
+    width: 200px;
+    text-align:center;
+}
+
+.createlistbutton a:hover{
+    cursor:pointer;
+    background: lightgreen;
+    text-decoration: none;
+}
+
+.delete-list{
+    height: 20px;
+    width: 20px;
+    color: black;
+    padding: 5px;
+}
+
+.delete-list:hover{
+    color: white;
+    background: red;
+}

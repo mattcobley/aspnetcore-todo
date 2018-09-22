@@ -21,5 +21,15 @@ namespace aspnetcore_todo.Services
             }
             return todoLists;
         }
+
+        public void add(TodoList list)
+        {
+            _todoRepository.Add(list);
+        }
+
+        public void delete(TodoList list)
+        {
+            _todoRepository.Delete(list);
+        }
     }
 }
