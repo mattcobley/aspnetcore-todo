@@ -1,7 +1,9 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace aspnetcore_todo.Models
 {
     public abstract class EntityBase
     {
-        public int id {get; protected set;}
+        public int Id {get; set;}
     }
 }

@@ -65,10 +65,24 @@ body {
 }
 
 .delete-list{
-    height: 20px;
-    width: 20px;
     color: black;
-    padding: 5px;
+    padding: 6px 12px;
+    font-size:14px;
+    border-color:#ccc;
+    -webkit-appearance: button;
+    cursor:pointer;
+    display:inline-block;
+    margin-bottom:0;
+    font-weight:normal;
+    line-height: 1.42857143;
+    text-align:center;
+    white-space: nowrap;
+    vertical-align:middle;
+    touch-action:manipulation;
+    user-select:none;
+    background-image:none;
+    border: 1px solid transparent;
+    border-radius: 4px;
 }
 
 .delete-list:hover{

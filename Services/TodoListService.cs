@@ -22,6 +22,11 @@ namespace aspnetcore_todo.Services
             return todoLists;
         }
 
+        public TodoList getById(int id)
+        {
+            return _todoRepository.GetById(id);
+        }
+
         public void add(TodoList list)
         {
             _todoRepository.Add(list);

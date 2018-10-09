@@ -16,9 +16,10 @@
     <ul class="list-group">
         @foreach (var todoList in Model.TodoLists)
         {
-            <li class="list-group-item text-center todolist">
-                @todoList.Name
-            </li>
+        <li class="list-group-item text-center todolist">
+            @todoList.Name
+            <a asp-page="./Delete" asp-route-id="@todoList.Id" class="delete-list">X</a>
+        </li>
         }
     </ul>
 </div>
