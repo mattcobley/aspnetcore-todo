@@ -1,0 +1,70 @@
+﻿@page
+@model aspnetcore_todo.Pages.TodoListModel
+@{
+    ViewData["Title"] = "TodoList";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h2>@Model.Target.Name</h2>
+
+@Html.AntiForgeryToken()
+<input id="listId" name="listId" type="hidden" value=@Model.Target.Id />
+<input id="newItemText" type="text" />
+<div class="createitembutton">Add New Item</div>
+
+<div class="row">
+    <ul class="list-group">
+        @foreach (var todoItem in Model.Target.Items.Where(i => !i.IsComplete))
+        {
+            <li class="list-group-item text-center todoitem">
+                <span class="list-item-incomplete"></span>
+                @todoItem.Name
+                <a asp-page="./DeleteItem" asp-route-id=@todoItem.Id class="delete-list">X</a>
+            </li>
+        }
+    </ul>
+
+    <br />
+
+    <ul class="list-group">
+        @foreach (var todoItem in Model.Target.Items.Where(i => i.IsComplete))
+        {
+            <li class="list-group-item text-center todoitem">
+                <span class="list-item-complete"></span>
+                @todoItem.Name
+                <a asp-page="./DeleteItem" asp-route-id=@todoItem.Id class="delete-list">X</a>
+            </li>
+        }
+    </ul>
+
+    @section scripts{
+        <script>
+            function getElementText(id) {
+                return document.getElementById(id).value
+            }
+            function submitNewItem() {
+                var newItemText = getElementText("newItemText")
+                var listId = getElementText("listId")
+                var todoItemDto = {
+                    Name: newItemText,
+                    ListId: listId
+                }
+                $.ajax({
+                    url: '/CreateItem',
+                    type: 'POST',
+                    contentType: 'application/json; charset=utf-8',
+                    data: JSON.stringify(todoItemDto),
+                    headers: {
+                        RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val()
+                    }
+                })
+                    .done(function (result) {
+                        var test = ""
+                    })
+            }
+            $('div.createitembutton').click(function () {
+                submitNewItem()
+            });
+        </script>
+    }
+</div>

@@ -13,13 +13,12 @@
 </div>
 
 <div class="row">
-    <ul class="list-group">
+    <div  class="list-group">
         @foreach (var todoList in Model.TodoLists)
         {
-        <li class="list-group-item text-center todolist">
-            @todoList.Name
-            <a asp-page="./Delete" asp-route-id="@todoList.Id" class="delete-list">X</a>
-        </li>
+            <a class="inline list-group-item text-center todolist" asp-page="./TodoList"
+                asp-route-id=@todoList.Id>@todoList.Name</a>
+            <a class="inline delete-list" asp-page="./Delete" asp-route-id=@todoList.Id>X</a>
         }
-    </ul>
+    </div>
 </div>

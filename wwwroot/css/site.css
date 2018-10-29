@@ -37,7 +37,6 @@ body {
 }
 
 .todolist.list-group-item.text-center{
-    border-radius: 15px;
     margin: 20px auto 20px auto;
     padding: 15px;
     border: 1px solid grey;
@@ -88,4 +87,33 @@ body {
 .delete-list:hover{
     color: white;
     background: red;
+}
+
+.createitembutton{
+    padding: 10px;
+    border: 1px solid grey;
+    width: 200px;
+    margin:10px 0px;
+}
+
+.createitembutton:hover{
+    cursor: pointer;
+    background: #ccc;
+    color:white;
+}
+
+.list-group{
+    text-align:center;
+}
+
+.listitemincomplete{
+
+}
+
+.listitemcomplete{
+
+}
+
+.inline{
+    display:inline-block;
 }

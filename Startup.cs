@@ -41,7 +41,9 @@ namespace aspnetcore_todo
         private void SetupDependencyInjection(IServiceCollection services)
         {
             services.AddScoped<IRepository<TodoList>, Repository<TodoList>>();
+            services.AddScoped<IRepository<TodoItem>, Repository<TodoItem>>();
             services.AddScoped<ITodoListService, TodoListService>();
+            services.AddScoped<ITodoListItemService, TodoListItemService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

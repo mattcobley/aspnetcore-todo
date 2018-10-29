@@ -1,13 +1,14 @@
 ﻿@page
-@model aspnetcore_todo.Pages.DeleteModel
+@model aspnetcore_todo.Pages.DeleteItemModel
 @{
     ViewData["Title"] = "Delete";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<h2>Delete Todo List:  @Model.ListToDelete.Name</h2>
+<h2>Todo List:  @Model.ItemToDelete.List.Name</h2>
+<h3>Delete Item: @Model.ItemToDelete.Name</h3>
 
-<p>Do you wish to delete this list?</p>
+<p>Do you wish to delete this item?</p>
 
 <hr />
 <div class="row">
