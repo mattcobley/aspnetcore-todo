@@ -232,3 +232,6 @@ _Pvt_Extensions
 
 # FAKE - F# Make
 .fake/
+
+# environment appsettings files
+**/appsettings.*.json
