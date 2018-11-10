@@ -18,7 +18,8 @@ namespace aspnetcore_todo.Pages
 
         public void OnGet(int id)
         {
-            Target = _todoListService.getById(id);
+            var list = _todoListService.getById(id);
+            Target = list;
         }
     }
 }

@@ -17,19 +17,18 @@ namespace aspnetcore_todo.Pages
             _todoListService = todoListService;
         }
 
-        public IActionResult OnPost(TodoItemDto itemDto)
+        public IActionResult OnPost([FromBody]TodoItemDto itemDto)
         {
-            //Coming through without parameters filled in
-            if (!ModelState.IsValid || itemDto.Name == null || itemDto.ListId == null)
+            if (!ModelState.IsValid || itemDto.Name == null)
             {
-                return RedirectToPage("Index");
+                return RedirectToPage("/Index");
             }
             var listId = itemDto.ListId;
             var list = _todoListService.getById(listId);
             var item = new TodoItem { Name= itemDto.Name, IsComplete= false, List=list};
             _todoListItemService.add(item);
 
-            return RedirectToPage("./TodoList", new {id = listId});
+            return RedirectToPage("/TodoList", new {id = listId});
         }
     }
 }

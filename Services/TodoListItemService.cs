@@ -23,19 +23,10 @@ namespace aspnetcore_todo.Services
             return todoItems;
         }
 
-        public TodoItem getById(int id)
-        {
-            return _todoItemRepository.GetById(id);
-        }
+        public TodoItem getById(int id) => _todoItemRepository.GetById(id);
 
-        public void add(TodoItem item)
-        {
-            _todoItemRepository.Add(item);
-        }
+        public void add(TodoItem item) => _todoItemRepository.Add(item);
 
-        public void delete(TodoItem item)
-        {
-            _todoItemRepository.Delete(item);
-        }
+        public void delete(TodoItem item) => _todoItemRepository.Delete(item);
     }
 }

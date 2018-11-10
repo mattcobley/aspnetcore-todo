@@ -52,15 +52,13 @@
                 $.ajax({
                     url: '/CreateItem',
                     type: 'POST',
+                    dataType: 'json',
                     contentType: 'application/json; charset=utf-8',
                     data: JSON.stringify(todoItemDto),
                     headers: {
                         RequestVerificationToken: $('input:hidden[name="__RequestVerificationToken"]').val()
                     }
-                })
-                    .done(function (result) {
-                        var test = ""
-                    })
+                });
             }
             $('div.createitembutton').click(function () {
                 submitNewItem()
